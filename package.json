@@ -1,0 +1,37 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "backend/server.js",
+	"type": "module",
+	"scripts": {
+		"start": "node backend/server",
+		"server": "env-cmd -f ./backend/config/.env nodemon backend/server",
+		"client": "npm start --prefix frontend",
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"data:import": "env-cmd -f ./backend/config/.env node backend/seeder",
+		"data:destroy": "env-cmd -f ./backend/config/.env node backend/seeder -d",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+	},
+	"keywords": [],
+	"author": "Ravi",
+	"license": "ISC",
+	"devDependencies": {
+		"concurrently": "^6.1.0",
+		"env-cmd": "^10.1.0",
+		"nodemon": "^2.0.7"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"colors": "^1.4.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"express-async-handler": "^1.1.4",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.12.10",
+		"mongoose-unique-validator": "^2.0.3",
+		"morgan": "^1.10.0",
+		"multer": "^1.4.2",
+		"validator": "^13.6.0"
+	}
+}
