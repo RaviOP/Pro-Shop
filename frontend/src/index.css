@@ -83,4 +83,7 @@ button:focus {
 	.name {
 		font-size: 1rem;
 	}
+	.carousel-caption {
+		display: none;
+	}
 }
