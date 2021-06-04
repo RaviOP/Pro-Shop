@@ -146,7 +146,7 @@ export const updateUserProfile = (name, email, password) => async (dispatch, get
 			payload: data,
 		});
 
-		const response = { ...data, token: userInfo.token };
+		const response = { ...data.user, token: data.token };
 		dispatch({
 			type: USER_LOGIN_SUCCESS,
 			payload: response,

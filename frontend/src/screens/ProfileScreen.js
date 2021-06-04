@@ -59,7 +59,7 @@ const ProfileScreen = ({ location, history }) => {
 
 	return (
 		<Row>
-			<Col md={3} className='p-4 border'>
+			<Col md={4} className='p-4 border'>
 				<span className='heading'>Your Profile</span>
 				{message && <Message variant='danger'>{message}</Message>}
 				{success && <Message variant='success'>Profie Updated</Message>}
@@ -109,7 +109,7 @@ const ProfileScreen = ({ location, history }) => {
 					</div>
 				</Form>
 			</Col>
-			<Col md={9}>
+			<Col md={8}>
 				<span className='heading'>My Orders</span>
 				{loadingOrders ? (
 					<Loader />
@@ -124,7 +124,7 @@ const ProfileScreen = ({ location, history }) => {
 								<th>TOTAL</th>
 								<th>PAID</th>
 								<th>DELIVERED</th>
-								<th></th>
+								<th>ACTIONS</th>
 							</tr>
 						</thead>
 						<tbody>

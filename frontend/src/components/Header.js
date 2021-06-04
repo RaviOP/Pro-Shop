@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/userActions";
 import SearchBox from "./SearchBox";
 
-const Header = ({ location }) => {
+const Header = () => {
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
 	const dispatch = useDispatch();

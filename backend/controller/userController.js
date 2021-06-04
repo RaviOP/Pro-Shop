@@ -42,16 +42,16 @@ const getUser = asyncHandler(async (req, res) => {
 });
 
 const updateUser = asyncHandler(async (req, res) => {
+	const { name, email, password } = req.body;
 	const user = await User.findById(req._id);
-	if (user) {
-		user.name = req.body.name || user.name;
-		user.email = req.body.email || user.email;
-		if (req.body.password) {
-			user.password = req.body.password;
-		}
+	user.name = name || user.name;
+	user.email = email || user.email;
+	if (password) {
+		user.password = password;
 	}
-	const updatedUser = await user.save();
-	res.status(200).send(updatedUser);
+	await user.save();
+	const token = await user.generateAuthToken();
+	res.status(200).send({ user, token });
 });
 
 const deleteUser = asyncHandler(async (req, res) => {

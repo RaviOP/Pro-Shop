@@ -23,11 +23,6 @@ const ProductCarousel = () => {
 				<Carousel.Item key={product._id} className='text-center'>
 					<Link to={`/product/${product._id}`}>
 						<Image src={product.image} alt={product.name} fluid className='mt-5' />
-						<Carousel.Caption className='carousel-caption'>
-							<span className='heading'>
-								{product.name} at ${product.price}
-							</span>
-						</Carousel.Caption>
 					</Link>
 				</Carousel.Item>
 			))}
