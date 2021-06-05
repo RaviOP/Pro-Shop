@@ -7,7 +7,7 @@ import axios from "axios";
 import { productDetailsList, updateProduct } from "../actions/productActions";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
+import { PRODUCT_DETAILS_RESET, PRODUCT_UPDATE_RESET } from "../constants/productConstants";
 
 const ProductEditScreen = ({ match, history }) => {
 	const productId = match.params.id;
@@ -34,6 +34,7 @@ const ProductEditScreen = ({ match, history }) => {
 	useEffect(() => {
 		if (successUpdate) {
 			dispatch({ type: PRODUCT_UPDATE_RESET });
+			dispatch({ type: PRODUCT_DETAILS_RESET });
 			history.push("/admin/productlist");
 		} else if (!product.name || product._id !== productId) {
 			dispatch(productDetailsList(productId));
